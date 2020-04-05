@@ -10,7 +10,7 @@ body {
 
 .event-header {
   background-color: red;
-  width: 80%;
+  width: 80vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -19,4 +19,20 @@ body {
 
 .bolder-weigth {
   font-weight: 700;
+}
+
+.calendar {
+  background-color: purple;
+  width: 80vw;
+  height: 150px;
+}
+
+.comment-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-event-btn {
+  text-align: center;
 }
