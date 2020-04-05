@@ -50,6 +50,12 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// temporary measure just until i figure it out why isnt working from users.js
+app.get("/event", (req, res) => {
+
+  res.render("event");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
