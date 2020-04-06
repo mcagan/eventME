@@ -60,28 +60,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/createEvent", (req, res) => {
-  // $(document).ready(function() {
-  //   $('#calendar').fullCalendar({
-  //     header: {
-  //       left: 'prev,next today',
-  //       center: 'title',
-  //       right: 'month,basicWeek,basicDay'
-  //     },
-  //   plugins: [ timeGridPlugin, interaction ],
-  //   defaultView: 'resourceTimeGridDay',
-  //   selectable: true,
-  //   header: {
-  //     left: 'prev,next today',
-  //     center: 'title',
-  //   },
-  //   select: function(info) {
-  //     alert('selected ' + info.startStr + ' to ' + info.endStr);
-  //     }
-  //   });
-  // });
-  res.render("createEvent")
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

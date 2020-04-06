@@ -6,15 +6,29 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link href='fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script src='fullcalendar/core/main.js'></script>
-    <script src='fullcalendar/daygrid/main.js'></script>
-    <script src='fullcalendar/resource-common/main.js'></script>
-    <script src='fullcalendar/resource-daygrid/main.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js'></script>
+    <script src='https://unpkg.com/@fullcalendar/interaction@4.4.0/main.min.js'></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log("DOM ready")
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['dayGrid', 'timeGrid','interaction'],
+        defaultView: 'timeGridWeek',
+        selectable: true
+       });
+       calendar.render();
+  });
+    </script>
 
 
   </head>
@@ -58,6 +72,7 @@
           id="creator-email"
           placeholder="Enter your email"
           ></textarea>
+        <div id='calendar'></div>
         <div class="event-submit">
           <button type="submit">Create</button>
             </div>
