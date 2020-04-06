@@ -21,10 +21,10 @@ body {
   font-weight: 700;
 }
 
-.calendar {
-  background-color: purple;
-  width: 80vw;
-  height: 150px;
+.poll_container_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .comment-event {
