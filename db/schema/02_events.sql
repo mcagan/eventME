@@ -1,3 +1,4 @@
+-- figure it out how to add cascade after
 DROP TABLE IF EXISTS events CASCADE;
 CREATE TABLE events (
   id SERIAL PRIMARY KEY NOT NULL,
