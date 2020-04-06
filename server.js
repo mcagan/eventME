@@ -53,6 +53,36 @@ app.use("/", uiRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/createEvent", (req, res) => {
+  // $(document).ready(function() {
+  //   $('#calendar').fullCalendar({
+  //     header: {
+  //       left: 'prev,next today',
+  //       center: 'title',
+  //       right: 'month,basicWeek,basicDay'
+  //     },
+  //   plugins: [ timeGridPlugin, interaction ],
+  //   defaultView: 'resourceTimeGridDay',
+  //   selectable: true,
+  //   header: {
+  //     left: 'prev,next today',
+  //     center: 'title',
+  //   },
+  //   select: function(info) {
+  //     alert('selected ' + info.startStr + ' to ' + info.endStr);
+  //     }
+  //   });
+  // });
+  res.render("createEvent")
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
