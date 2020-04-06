@@ -22,12 +22,5 @@ module.exports = (db) => {
       });
   });
 
-  // EVENT ROUTER TO RENDER EVENT PAGE - TEST - BY LUANA
-  // this is not working in here, i will figure it out monday
-  // just as a temporary measure i will have this route on server.js
-  router.get("/event", (req, res) => {
-    res.render("event");
-  });
-
   return router;
 };
