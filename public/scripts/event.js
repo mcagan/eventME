@@ -8,16 +8,62 @@
 // TEMPLATE STILL SAVED AND COMMENTED IN INDEX.HTML
 const createTweetElement = function(tweetObj) {
 
+
+  //       <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+  //         <a class="a2a_button_email"></a>
+  //         <a class="a2a_button_facebook_messenger"></a>
+  //         <a class="a2a_button_linkedin"></a>
+  //         <a class="a2a_button_copy_link"></a>
+  //       </div>
+  //       <script async src="https://static.addtoany.com/menu/page.js"></script>
+  //       <!-- AddToAny END -->
+  //     </div>
+
+  let $divEventHeader = $('<div>').addClass('event-header');
+    $('<h2>').appendTo($divEventHeader);
+    let $pByUser = $('<p>');
+      $('<span>')
+        .addClass('bolder-weigth')
+        .text('By: ')
+        .appendTo($pByUser);
+    let $pByDate = $('<p>');
+      $('<span>')
+        .addClass('bolder-weigth')
+        .text('On: ')
+        .appendTo($pByDate);
+    let $pByLocation = $('<p>');
+      $('<span>')
+        .addClass('bolder-weigth')
+        .text('Location: ')
+        .appendTo($pByLocation);
+    let $divShareLink = $('<div>').addClass('a2a_kit a2a_kit_size_32 a2a_default_style')
+      $('<a>')
+        .addClass('a2a_button_emai')
+        .appendTo($divShareLink);
+      $('<a>')
+        .addClass('a2a_button_facebook_messenger')
+        .appendTo($divShareLink);
+      $('<a>')
+        .addClass('a2a_button_linkedin')
+        .appendTo($divShareLink);
+      $('<a>')
+        .addClass('a2a_button_copy_link')
+        .appendTo($divShareLink);
+
+
   // create the HTML for one poll event
   let $divPollContainer = $('<div>').addClass('poll_container');
 
-  // <div class="poll_container">
-  //         <!-- row containing date information + the first cell is always empty -->
-  //         <div class="poll_container_participant">
-  //           <img src="https://www.pngfind.com/pngs/m/5-59769_emoticon-text-smiley-messaging-emoji-png-image-high.png" alt="Smiley face" width="30" height="30" />
-  //           <input type="text" value="Luana Duarte" id="participant_name" placeholder="Enter your name" required="required" maxlength="64" aria-label="Your name">
-  //         </div>
-  //         <!-- row containing the votes count -->
+  let $divParticipantContainer = $('<div>').addClass('poll_container_participan');
+    $('<input>')
+      .attr('type', 'text')
+      .attr('value', 'Luana Duarte')
+      .attr('id', 'participant_name')
+      .attr('required', 'required')
+      .attr('maxlength', '64')
+      .appendTo($divParticipantContainer);
+
+
   //         <ul class="dates_list">
   //           <!-- every new date is it's own li with date / vote counter / and checkbox -->
   //           <li class="date_list_row">
@@ -68,7 +114,7 @@ const createTweetElement = function(tweetObj) {
   //       </div>
 
   // return final tweet element
-  return $divPollContainer;
+  return $divEventHeader;
 };
 
 
