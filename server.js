@@ -52,7 +52,6 @@ app.get("/", (req, res) => {
 
 // temporary measure just until i figure it out why isnt working from users.js
 app.get("/event", (req, res) => {
-
   res.render("event");
 });
 

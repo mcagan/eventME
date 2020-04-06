@@ -26,7 +26,6 @@ module.exports = (db) => {
   // this is not working in here, i will figure it out monday
   // just as a temporary measure i will have this route on server.js
   router.get("/event", (req, res) => {
-
     res.render("event");
   });
 
