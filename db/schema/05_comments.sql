@@ -6,5 +6,5 @@ CREATE TABLE comments (
   user_id INTEGER REFERENCES users(id) CASCADE ON DELETE,
   events_id INTEGER REFERENCES events(id) CASCADE ON DELETE,
   comment TEXT NOT NULL,
-  posted_on DATE NOT NULL
+  posted_on TIMESTAMP
 );
