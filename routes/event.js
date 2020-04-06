@@ -7,5 +7,9 @@ module.exports = (db) => {
     res.render("event");
   });
 
+  router.get("/createEvent", (req, res) => {
+    res.render("createEvent");
+  })
+
   return router;
 }

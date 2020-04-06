@@ -16,6 +16,12 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
+//Fullcalendar setup
+const { Calendar } = require('@fullcalendar/core');
+const dayGridPlugin = require('@fullcalendar/daygrid');
+const timeGridPlugin = require('@fullcalendar/timegrid');
+const interaction = require('@fullcalendar/interaction')
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -33,18 +39,26 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
+// const createEvent = require("./routes/createEvent");
 const widgetsRoutes = require("./routes/widgets");
 // routes for all UI - event
 const eventRoutes = require("./routes/event");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+// app.use("/createEvent", createEvent(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // routes for all UI - event
 app.use("/", eventRoutes(db));
 // Note: mount other resources here, using the same pattern above
+
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
 
 // Home page
 // Warning: avoid creating more routes in this file!
