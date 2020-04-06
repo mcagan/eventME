@@ -35,16 +35,23 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-// routes for all UI - event / index / create event
-const uiRoutes = require("./routes/ui");
+// routes for all UI - event
+const eventRoutes = require("./routes/event");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-// routes for all UI - event / index / create event
-app.use("/", uiRoutes(db));
+// routes for all UI - event
+app.use("/", eventRoutes(db));
 // Note: mount other resources here, using the same pattern above
+
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 
 app.listen(PORT, () => {
