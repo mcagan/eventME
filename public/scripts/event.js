@@ -6,43 +6,46 @@
 
 // THIS FUNCTION WILL CREATE THE HTML ELEMENTS FOR A NEW EVENT
 const createListOfDates = function(listObj) {
-        let $ulcontainAllList = $('ul.dates_list');
-          let $liListRow = $('<li>').addClass('date_list_row');
-            let $divDate = $('<div>').addClass('date_option');
-              $('<div>')
-                .text('text')
-                .addClass('d-month')
-                .appendTo($divDate);
-              $('<div>')
-                .addClass('d-date')
-                .appendTo($divDate);
-              $('<div>')
-                .addClass('d-day')
-                .appendTo($divDate);
-            let $divVoteCounter = $('<div>').addClass('vote_counter');
-              $('<p>')
-                .appendTo($divVoteCounter);
-            $('<input>')
-              .attr('type', 'checkbox')
-              .attr('id', 'poll_checkbox')
-              .attr('name', 'to-be-decided')
-              .attr('value', 'to-be-decided')
-              .appendTo($liListRow);
+  let $ulcontainAllList = $('ul.dates_list');
+    let $liListRow = $('<li>').addClass('date_list_row');
+      let $divDate = $('<div>').addClass('date_option');
+        $('<div>')
+          .text('text') // dummy to be removed
+          .addClass('d-month')
+          .appendTo($divDate);
+        $('<div>')
+          .text('text') // dummy to be removed
+          .addClass('d-date')
+          .appendTo($divDate);
+        $('<div>')
+          .text('text') // dummy to be removed
+          .addClass('d-day')
+          .appendTo($divDate);
+      let $divVoteCounter = $('<div>').addClass('vote_counter');
+        $('<p>')
+          .text('0 votes') // dummy to be removed
+          .appendTo($divVoteCounter);
+      let $inputChackBox = $('<input>')
+        .attr('type', 'checkbox')
+        .attr('id', 'poll_checkbox')
+        .attr('name', 'to-be-decided')
+        .attr('value', 'to-be-decided');
 
   // this closes all elements appenddint to its parent
   // $divShareLink.appendTo($divEventHeader);
   // $pByUser.appendTo($divEventHeader);
   // $divEventHeader.appendTo($divMainWrapper);
   // $divParticipantContainer.appendTo(divPollContainer);
-  $divVoteCounter.appendTo($liListRow);
   $divDate.appendTo($liListRow);
+  $divVoteCounter.appendTo($liListRow);
+  $inputChackBox.appendTo($liListRow);
   $liListRow.appendTo($ulcontainAllList);
   // $divPollList.appendTo($divPollContainer);
   // $divParticipantContainer.appendTo($divPollContainer);
   // $divPollContainer.appendTo($divMainWrapper);
 
   // return final tweet element
-  return $divMainWrapper;
+  return $ulcontainAllList;
 };
 
 
@@ -56,8 +59,8 @@ $(document).ready(function() {
 
 
 
-
-
+// IT WAS ALL DYNAMIC BUT APPERANTELY WE DONT NEED TO BE//////
+/////////////
 // let $divMainWrapper = $('<div>').addClass('main-wrapper');
 
 // // ADDS A HEADER FOR EVENT'S TITLE, USER, DATE AND LOCATION + SHARE BUTTONS
