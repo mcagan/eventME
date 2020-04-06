@@ -23,6 +23,11 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['dayGrid', 'timeGrid','interaction'],
+        header: {
+         left: 'prev,next today',
+         center: 'title',
+         right: 'dayGridMonth,timeGridWeek'
+         },
         defaultView: 'timeGridWeek',
         selectable: true
        });
