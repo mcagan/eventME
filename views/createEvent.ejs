@@ -6,9 +6,17 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link href='fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src='fullcalendar/core/main.js'></script>
+    <script src='fullcalendar/daygrid/main.js'></script>
+    <script src='fullcalendar/resource-common/main.js'></script>
+    <script src='fullcalendar/resource-daygrid/main.js'></script>
+
+
   </head>
 
   <body>
@@ -20,34 +28,36 @@
         Content-Type="application/x-www-form-urlencoded"
         id="submit"
          >
+        <h3>Event Title: </h3>
         <textarea
           name="text"
           id="event-title"
           placeholder="Enter the event title"
-          >Event Title: </textarea>
+          ></textarea>
+        <h3>Description: </h3>
         <textarea
           name="text"
           id="event-description"
           placeholder="Enter the description"
-          >Description: </textarea>
+          ></textarea>
+        <h3>Location: </h3>
         <textarea
           name="text"
           id="event-location"
           placeholder="Enter event location"
-          >Location: </textarea>
+          ></textarea>
+        <h3>Name: </h3>
         <textarea
           name="text"
           id="creator-name"
           placeholder="Enter your name"
-          >Name: </textarea>
+          ></textarea>
+        <h3>Email: </h3>
         <textarea
           name="text"
           id="creator-email"
           placeholder="Enter your email"
-          >Email: </textarea>
-        <div class="calendar">
-
-        </div>
+          ></textarea>
         <div class="event-submit">
           <button type="submit">Create</button>
             </div>
