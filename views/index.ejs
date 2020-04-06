@@ -1,17 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Home Page</title>
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/fixed.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="/scripts/font_awesome.js"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
-  <body>
-    <h1>Hello World!</h1>
+  <body data-spy="scroll" data-target="navbarResponsive">
+    <!-- Start Home Section -->
+    <div id="home">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#"
+          ><h1 class="homepage_logo">eventMe.</h1></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#partners">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#partners">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- End of Navigation -->
+
+      <!-- Start landing page section -->
+      <div class="landing">
+        <div class="home-wrap">
+          <div class="home-inner"></div>
+        </div>
+      </div>
+      <div class="caption text-center">
+        <h1>Your next event is a click away.</h1>
+        <a class="btn btn-outline-light btn-lg" href="#">Get Started</a>
+      </div>
+      <!-- End landing page section -->
+    </div>
+    <!-- End of Home Section -->
+
+    <!-- Start of About Us Section -->
+    <div id="about" class="offset">
+      <div class="col-12 narrow text-center">
+        <h1>About Us</h1>
+        <div class="about-underline"></div>
+        <P class="about-description"
+          >eventMe allows users schedule meetings anytime, anyplace at the
+          comfort of their device. This application was created by the March 2nd
+          Cohort of Lighthouse Labs Montreal.</P
+        >
+      </div>
+    </div>
+    <!-- End of About Us Section -->
+    <!-- Start of Features Section -->
+    <div id="features" class="offset">
+      <div class="jumbotron">
+        <div class="col-12 narrow text-center">
+          <h3 class="features-heading">
+            Features
+          </h3>
+          <div class="feature-underline"></div>
+        </div>
+        <div class="row text-center">
+          <!-- Start of feature rows -->
+          <div class="col-md-4">
+            <div class="each-feature">
+              <i
+                class="fas fa-calendar-alt fa-4x"
+                data-fa-transform="shrink-3 up-5"
+              ></i>
+              <h3>Availability Snapshot</h3>
+              <p>
+                See all possible availabilities at one go. Avoiding all the back
+                and forth between team members.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="each-feature">
+              <i
+                class="fas fa-user-tie fa-4x"
+                data-fa-transform="shrink-3 up-5"
+              ></i>
+              <h3>Professional Setting</h3>
+              <p>
+                Keep all meeting detail in one place to all for better
+                organization.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="each-feature">
+              <i
+                class="far fa-smile fa-4x"
+                data-fa-transform="shrink-3 up-5"
+              ></i>
+              <h3>Easy to Use</h3>
+              <p>
+                With a simple user interface, create any event with ease and
+                share details with your team members.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of feature rows -->
+    </div>
+    <!-- End of Features Section -->
+
+    <!-- Start of Partners Section -->
+    <div id="partners" class="offset">
+      <div class="col-12 narrow text-center">
+        <h1>Partners</h1>
+        <div class="partners-underline"></div>
+        <P class="partners-description"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/50/Lighthouse_Labs.png"
+        /></P>
+      </div>
+    </div>
+    <!-- End of Partners Section -->
+
+    <!-- Start of Contact Section -->
+    <div id="contact" class="offset">
+      <footer>
+        <div class="row justify-content-center">
+          <div class="col-md-5 text-center">
+            <h1>eventMe.</h1>
+            <p>
+              Our purpose is to allow for easy collaboration through efficient
+              scheduling of meetings and events amongst different stakeholders
+              in your team.
+            </p>
+            <strong>Contact Info</strong>
+            <p>(800) 111-111<br />email@eventme.com</p>
+            <a href="" target="_blank"
+              ><i class="fab fa-facebook-square"></i
+            ></a>
+            <a href="" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+          <hr class="socket" />
+          &copy; eventMe.
+        </div>
+      </footer>
+    </div>
+    <!-- End of Contact Section -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
