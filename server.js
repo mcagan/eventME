@@ -41,43 +41,17 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 // const createEvent = require("./routes/createEvent");
 const widgetsRoutes = require("./routes/widgets");
+// routes for all UI - event / index / create event
+const uiRoutes = require("./routes/ui");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/createEvent", createEvent(db));
 app.use("/api/widgets", widgetsRoutes(db));
+// routes for all UI - event / index / create event
+app.use("/", uiRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/createEvent", (req, res) => {
-  // $(document).ready(function() {
-  //   $('#calendar').fullCalendar({
-  //     header: {
-  //       left: 'prev,next today',
-  //       center: 'title',
-  //       right: 'month,basicWeek,basicDay'
-  //     },
-  //   plugins: [ timeGridPlugin, interaction ],
-  //   defaultView: 'resourceTimeGridDay',
-  //   selectable: true,
-  //   header: {
-  //     left: 'prev,next today',
-  //     center: 'title',
-  //   },
-  //   select: function(info) {
-  //     alert('selected ' + info.startStr + ' to ' + info.endStr);
-  //     }
-  //   });
-  // });
-  res.render("createEvent")
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
