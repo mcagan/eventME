@@ -6,26 +6,26 @@
 
 // THIS FUNCTION WILL CREATE THE HTML ELEMENTS FOR A NEW EVENT
 const createListOfDates = function(listObj) {
-  // let momentDay = moment(listObj.date);
-  // momentDay.format('MMM Do YY')
-  let momentDates = moment(listObj.date);
+  console.log(listObj.votes);
 
   let $ulcontainAllList = $('ul.dates_list');
     let $liListRow = $('<li>').addClass('date_list_row');
       let $divDate = $('<div>').addClass('date_option');
         $('<div>')
           .addClass('d-month')
-          .text(moment(momentDay))
+          .text(moment(listObj.date).format('MMM'))
           .appendTo($divDate);
         $('<div>')
           .addClass('d-date')
+          .text(moment(listObj.date).format('Do'))
           .appendTo($divDate);
         $('<div>')
           .addClass('d-day')
+          .text(moment(listObj.date).format('ddd'))
           .appendTo($divDate);
       let $divVoteCounter = $('<div>').addClass('vote_counter');
         $('<p>')
-          .text(event.votes)
+          .text(listObj.votes)
           .text(' votes')
           .appendTo($divVoteCounter);
       let $inputChackBox = $('<input>')
@@ -45,9 +45,9 @@ const createListOfDates = function(listObj) {
 
 // FUNCTION TO RENDER EVENTS COMMING FROM DATABASE?!
 const renderListOfDates = function(ListOfDates) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
+  // loops through dates
+  // calls createListOfDates for each date list
+  // takes return value and appends it to the list < ul >
   $('.dates_list').empty();
   $.each(ListOfDates, function(index, listObj) {
     $('.dates_list').append(createListOfDates(listObj));
@@ -64,10 +64,6 @@ const requestDates = (url) => {
     .done(function(result) {
       // Success. Getting the result from the request
       // the return element need to be appended to the existing html
-      // i need to get event.date
-      // use moment to generate the appropriate format
-      // pass the value to my template
-      // $('date_option').append(renderListOfDates(result));
       renderListOfDates(result);
     })
     .fail(function(error) {
@@ -79,6 +75,10 @@ const requestDates = (url) => {
       console.log('request completed');
     });
 };
+
+//////////////////////////////////////////////////////////////////////
+/// DO I NEED TO CREATE A POST REQUEST FOR THE VOTES? I THINK YES ///
+////////////////////////////////////////////////////////////////////
 
 // WHEN DOCUMENT IS READY DO THE FOLLOWING
 $(document).ready(function() {
