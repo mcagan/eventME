@@ -24,7 +24,7 @@ const createListOfDates = function (listObj) {
     .text(moment(listObj.date).format("ddd"))
     .appendTo($divDate);
   let $divVoteCounter = $("<div>").addClass("vote_counter");
-  $("<p>").text(listObj.votes).text(" votes").appendTo($divVoteCounter);
+  $("<p>").text(listObj.vote).text(" votes").appendTo($divVoteCounter);
   let $inputCheckBox = $("<input>")
     .attr("type", "checkbox")
     .attr("id", "poll_checkbox")
