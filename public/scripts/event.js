@@ -28,7 +28,7 @@ const createListOfDates = function(listObj) {
           .text(listObj.votes)
           .text(' votes')
           .appendTo($divVoteCounter);
-      let $inputChackBox = $('<input>')
+      let $inputCheckBox = $('<input>')
         .attr('type', 'checkbox')
         .attr('id', 'poll_checkbox')
         .attr('name', 'to-be-decided')
@@ -36,7 +36,7 @@ const createListOfDates = function(listObj) {
 
   $divDate.appendTo($liListRow);
   $divVoteCounter.appendTo($liListRow);
-  $inputChackBox.appendTo($liListRow);
+  $inputCheckBox.appendTo($liListRow);
   $liListRow.appendTo($ulcontainAllList);
 
   // return final tweet element
