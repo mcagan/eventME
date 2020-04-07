@@ -28,8 +28,19 @@
          center: 'title',
          right: 'dayGridMonth,timeGridWeek'
          },
+        events: [],
         defaultView: 'timeGridWeek',
-        selectable: true
+        selectable: true,
+        dragScroll: true,
+        select: function (info) {
+            calendar.addEvent({
+              start: info.start,
+              end: info.end,
+              allDay: info.allDay
+            });
+          console.log(calendar.events);
+          calendar.unselect();
+        }
        });
        calendar.render();
   });
