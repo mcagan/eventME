@@ -1,5 +1,5 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
   // EVENT ROUTER TO RENDER EVENT PAGE - TEST - BY LUANA
@@ -18,23 +18,21 @@ module.exports = (db) => {
       .then(data => {
         let event = data.rows[0];
         event.id = req.params.id;
-        console.log(event);
+        console.log("CHECK THIS HERE", event);
         if (ajax) {
           res.json({ event });
         } else {
-          res.render('event', { event });
+          res.render("event", { event });
         }
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
   router.get("/createEvent", (req, res) => {
     res.render("createEvent");
-  })
+  });
 
   return router;
-}
+};
