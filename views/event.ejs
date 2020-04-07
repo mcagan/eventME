@@ -15,12 +15,16 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <!-- ////////////////// -->
+
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- EVENT JS JQUERY -->
     <script type="text/javascript" src="/scripts/event.js"></script>
+
+    <!-- MOMENT JS -->
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -35,7 +39,7 @@
     <nav style="width: 100vw; height: 100px; background-color: blue;">placeholder</nav>
 
     <!-- MAIN WRAPPER -->
-    <div class="main-wrapper">
+    <div class="main-wrapper" data-id="<%= event.id %>">
       <!-- EVENT HEADER -->
       <div class="event-header">
         <h2><%= event.title %></h2>
@@ -56,7 +60,8 @@
           <!-- row containing date information + the first cell is always empty -->
           <div class="poll_container_participant">
             <img src="https://www.pngfind.com/pngs/m/5-59769_emoticon-text-smiley-messaging-emoji-png-image-high.png" alt="Smiley face" width="30" height="30" />
-            <input type="text" value="Luana Duarte" id="participant_name" placeholder="Enter your name" required="required" maxlength="64" aria-label="Your name">
+            <input type="text" value="<%= event.name %>" id="participant_name" placeholder="Enter your name" required="required" maxlength="64" aria-label="Your name" />
+            <input type="email" value="<%= event.email %>" id="participant_email" placeholder="Enter your email" required="required" />
           </div>
           <!-- row containing the votes count -->
           <ul class="dates_list">
@@ -91,7 +96,6 @@
     </div>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
