@@ -6,48 +6,60 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css"
+    />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script src='https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js'></script>
-    <script src='https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js'></script>
-    <script src='https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js'></script>
-    <script src='https://unpkg.com/@fullcalendar/interaction@4.4.0/main.min.js'></script>
+    <script src="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js"></script>
+    <script src="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js"></script>
+    <script src="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js"></script>
+    <script src="https://unpkg.com/@fullcalendar/interaction@4.4.0/main.min.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        console.log("DOM ready")
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ['dayGrid', 'timeGrid','interaction'],
-        header: {
-         left: 'prev,next today',
-         center: 'title',
-         right: 'dayGridMonth,timeGridWeek'
-         },
-        events: [],
-          defaultView: 'timeGridWeek',
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM ready");
+        let events = [];
+        const calendarEl = document.getElementById("calendar");
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: ["dayGrid", "timeGrid", "interaction"],
+          header: {
+            left: "prev,next today",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek",
+          },
+          events: [],
+          defaultView: "timeGridWeek",
           selectable: true,
           dragScroll: true,
           select: function (info) {
             calendar.addEvent({
               start: info.start,
               end: info.end,
-              allDay: info.allDay
+              allDay: info.allDay,
             });
-            console.log(this.events);
+            let event = {
+              start: info.start,
+              end: info.end,
+              allDay: info.allDay,
+            };
+            events.push(event);
             calendar.unselect();
-
-          }
+          },
         });
-       calendar.render();
-  });
+        calendar.render();
+      });
     </script>
-
-
   </head>
 
   <body>
@@ -58,42 +70,42 @@
         action="/events"
         Content-Type="application/x-www-form-urlencoded"
         id="submit"
-         >
-        <h3>Event Title: </h3>
+      >
+        <h3>Event Title:</h3>
         <textarea
           name="text"
           id="event-title"
           placeholder="Enter the event title"
-          ></textarea>
-        <h3>Description: </h3>
+        ></textarea>
+        <h3>Description:</h3>
         <textarea
           name="text"
           id="event-description"
           placeholder="Enter the description"
-          ></textarea>
-        <h3>Location: </h3>
+        ></textarea>
+        <h3>Location:</h3>
         <textarea
           name="text"
           id="event-location"
           placeholder="Enter event location"
-          ></textarea>
-        <h3>Name: </h3>
+        ></textarea>
+        <h3>Name:</h3>
         <textarea
           name="text"
           id="creator-name"
           placeholder="Enter your name"
-          ></textarea>
-        <h3>Email: </h3>
+        ></textarea>
+        <h3>Email:</h3>
         <textarea
           name="text"
           id="creator-email"
           placeholder="Enter your email"
-          ></textarea>
-        <div id='calendar'></div>
+        ></textarea>
+        <div id="calendar"></div>
         <div class="event-submit">
           <button type="submit">Create</button>
-            </div>
-          </form>
+        </div>
+      </form>
     </section>
   </body>
 </html>
