@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main-wrapper {
@@ -57,4 +57,8 @@ body {
 
 .comment-event-btn {
   text-align: center;
+}
+
+#poll-submit-btn {
+  background-color: rgba(49, 10, 187, 0.8);
 }
