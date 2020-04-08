@@ -50,10 +50,12 @@
       <!-- EVENT HEADER -->
       <div class="event-header">
         <h2><%= event.title %></h2>
-        <p><span class="bolder-weigth">By:</span> <%= event.name %></p>
-        <p>
-          <span class="bolder-weigth">Location:</span> <%= event.location %>
-        </p>
+        <div class="event-author">
+          <p><span class="bolder-weigth">BY:</span> <%= event.name %></p>
+          <p>
+            <span class="bolder-weigth">LOCATION:</span> <%= event.location %>
+          </p>
+        </div>
         <p><span class="bolder-weigth">Event link:</span> <%= event.url %></p>
         <!-- NEED TO CREATE BUTTON FOR CREATOR ONLY -->
         <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
