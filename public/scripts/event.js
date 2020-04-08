@@ -4,10 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// THIS FUNCTION WILL CREATE THE HTML ELEMENTS FOR A NEW EVENT
+// FUNCTION WILL CREATE THE DATES IN HTML FOR AN EVENT
 const createListOfDates = function (listObj) {
-  console.log("DATE", listObj.start_date);
-
   let $ulcontainAllList = $("ul.dates_list");
   let $liListRow = $("<li>").addClass("date_list_row");
   let $divDate = $("<div>").addClass("date_option");
@@ -56,8 +54,9 @@ const renderListOfDates = function (ListOfDates) {
   $(".dates_list").empty();
 
   $.each(ListOfDates, function (index, listObj) {
-    console.log("listObj", listObj);
-    $(".dates_list").append(createListOfDates(listObj));
+    listObj.forEach((item) => {
+      $(".dates_list").append(createListOfDates(item));
+    });
   });
 };
 
@@ -93,8 +92,6 @@ $(document).ready(function () {
   const eventId = $(".main-wrapper").data("id");
 
   //const eventId = $(".main-wrapper").data("event.event_id");
-
-  console.log("helooo", eventId);
 
   // ?ajax=true -> means that we want to get json data back from the backend route (otherwise we get full HTML)
   requestDates(`/event/${eventId}?ajax=true`);

@@ -59,10 +59,10 @@
     <div class="main-wrapper" data-id="<%= event.id %>">
       <!-- EVENT HEADER -->
       <div class="event-header">
-        <h2><%= event.title %></h2>
-        <p><span class="bolder-weigth">By:</span> <%= event.name %></p>
+        <h2><%= event[0].title %></h2>
+        <p><span class="bolder-weigth">By:</span> <%= event[0].name %></p>
         <p>
-          <span class="bolder-weigth">Location:</span> <%= event.location %>
+          <span class="bolder-weigth">Location:</span> <%= event[0].location %>
         </p>
         <!-- NEED TO CREATE BUTTON FOR CREATOR ONLY -->
         <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
