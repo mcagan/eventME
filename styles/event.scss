@@ -77,7 +77,7 @@ body {
 // POLL CONTAINER STARTS HERE
 
 .poll_container {
-  width: 100%;
+  width: 65vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -86,6 +86,7 @@ body {
   border: #343a4081 2px solid;
 }
 
+// header part of the poll
 .poll_container_participant {
   width: 100%;
   height: auto;
@@ -120,24 +121,60 @@ body {
   margin-right: 40px;
 }
 
+// body part of the poll (list)
+.dates_list_container {
+  width: 90%;
+  height: auto;
+}
+
+.dates_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  text-transform: uppercase;
+}
+
 .date_list_row {
-  width: 60vw;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-bottom: black 1px solid;
+  border-bottom: #343a40 2px solid;
+  padding-bottom: 15px;
 }
 
 .date_option {
-  width: 10%;
+  width: 15%;
   height: auto;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 0px;
+}
+
+.d-date {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.d-time {
+  font-size: 0.5em;
 }
 
 .vote_counter {
-  width: 80%;
+  width: 65%;
   height: auto;
+  padding-left: 20px;
+  font-size: 1em;
+  text-transform: lowercase;
+}
+
+ul input {
+  width: 20%;
 }
 
 .comment-event {
