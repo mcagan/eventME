@@ -98,12 +98,25 @@ body {
   background-color: #343a40;
 }
 
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  padding-top: 2px;
+}
+
+.material-icons {
+  color: white;
+  font-size: 28px;
+  padding-right: 15px;
+}
+
 ::placeholder {
   color: #343a40;
   padding-left: 10px;
 }
 
-.poll_container_participant div:not(:last-child) {
+.input-container:not(:last-child) {
   margin-right: 40px;
 }
 
@@ -152,7 +165,11 @@ body {
     justify-content: center;
   }
 
-  .poll_container_participant div:not(:last-child) {
+  .icon {
+    display: none;
+  }
+
+  .input-container:not(:last-child) {
     margin-right: 0px;
     margin-left: 0px;
     margin-bottom: 15px;
