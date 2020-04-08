@@ -53,8 +53,7 @@ module.exports = (db) => {
       let start = new Date(date.start);
       let end = new Date(date.end);
       let values = [start, end, date.allDay, event_id];
-      return db
-        .query(queryText, values)
+      db.query(queryText, values)
         .then((res) => res.rows)
         .catch((err) => console.log("Err", err));
     }
