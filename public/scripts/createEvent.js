@@ -1,26 +1,24 @@
-//Generates random string for uniqueURL
-const generateUniqueURL = (num) => {
-  let result = "";
-  let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  for (let i = 0; i < num; i++) {
-    result += chars.charAt(Math.floor(Math.random() * 62));
+function objectifyForm(formArray) {
+  //serialize data function
+
+  var returnArray = {};
+  for (var i = 0; i < formArray.length; i++) {
+    returnArray[formArray[i]["name"]] = formArray[i]["value"];
   }
-  return result;
-};
-module.exports = { generateUniqueURL };
+  return returnArray;
+}
 
 $(document).ready(() => {
-  $("#submit").submit(function (event) {
+  // let userEvents = [];
+  // window.userEvents = userEvents;
+  $("#event-submit-button").click(function (event) {
     event.preventDefault();
-    let outputObj = {};
-    outputObj.title = event.text[0];
-    outputObj.description = event.text[1];
-    outputObj.location = event.text[2];
-    outputObj.name = event.text[3];
-    outputObj.email = event.text[4];
-    outputObj.events = events;
-    date = outputObj.serialize();
-    $.ajax({ method: "POST", url: "/events", data })
+    const array = $("#event-submit").serializeArray();
+    let values = objectifyForm(array);
+    values.events = userEvents;
+    console.log(userEvents);
+    console.log(values);
+    $.ajax({ type: "POST", url: "/events", data: values })
       .done(function (result) {
         return result;
       })

@@ -20,16 +20,17 @@
     />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/createEvent.js"></script>
     <script src="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js"></script>
     <script src="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js"></script>
     <script src="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js"></script>
     <script src="https://unpkg.com/@fullcalendar/interaction@4.4.0/main.min.js"></script>
-
+    <script>
+      var userEvents = [];
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         console.log("DOM ready");
-        let events = [];
         const calendarEl = document.getElementById("calendar");
         let calendar = new FullCalendar.Calendar(calendarEl, {
           plugins: ["dayGrid", "timeGrid", "interaction"],
@@ -53,11 +54,13 @@
               end: info.end,
               allDay: info.allDay,
             };
-            events.push(event);
+            userEvents.push(event);
+            console.log(userEvents);
             calendar.unselect();
           },
         });
         calendar.render();
+        // return userEvents;
       });
     </script>
   </head>
@@ -65,45 +68,41 @@
   <body>
     <h1>Create an Event</h1>
     <section class="event-creation-form">
-      <form
-        method="POST"
-        action="/events"
-        Content-Type="application/x-www-form-urlencoded"
-        id="submit"
-      >
+      <form Content-Type="application/x-www-form-urlencoded" id="event-submit">
         <h3>Event Title:</h3>
-        <textarea
-          name="text"
+        <input
+          name="title"
           id="event-title"
           placeholder="Enter the event title"
-        ></textarea>
+        ></input>
         <h3>Description:</h3>
-        <textarea
-          name="text"
+        <input
+          name="description"
           id="event-description"
           placeholder="Enter the description"
-        ></textarea>
+        ></input>
         <h3>Location:</h3>
-        <textarea
-          name="text"
+        <input
+          name="location"
           id="event-location"
           placeholder="Enter event location"
-        ></textarea>
+        ></input>
         <h3>Name:</h3>
-        <textarea
-          name="text"
+        <input
+          name="name"
           id="creator-name"
           placeholder="Enter your name"
-        ></textarea>
+        ></input>
         <h3>Email:</h3>
-        <textarea
-          name="text"
+        <input
+          name="email"
           id="creator-email"
           placeholder="Enter your email"
-        ></textarea>
+        ></input>
         <div id="calendar"></div>
+        <input type="hidden" id="hiddenVar" />
         <div class="event-submit">
-          <button type="submit">Create</button>
+          <button id="event-submit-button" type="submit">Create</button>
         </div>
       </form>
     </section>
