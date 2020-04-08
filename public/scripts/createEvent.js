@@ -35,28 +35,3 @@ $(document).ready(() => {
       });
   });
 });
-
-// const addEvent = function (data, user) {
-//   const queryText =
-//     "INSERT INTO events (title, URL, description, location, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING *;";
-//   const URL = generateUniqueURL(10);
-//   const values = [data.title, URL, data.description, data.location, user.id];
-//   return pool
-//     .query(queryText, values)
-//     .then((res) => res.rows)
-//     .catch((err) => console.log("Err", err));
-// };
-// exports.addEvent = addEvent;
-
-// const addUser = function (data) {
-//   const queryText =
-//     "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING id;";
-//   const values = [data.name, data.email];
-//   return pool
-//     .query(queryText, values)
-//     .then((res) => addEvent(data, Number(res.rows[0]).then((res) => ))
-//     .catch((err) => console.log("Err", err));
-// };
-// exports.addUser = addUser;
-
-// const addDate = function (calendar) {};
