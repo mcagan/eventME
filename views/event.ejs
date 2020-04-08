@@ -32,6 +32,9 @@
     <!-- MOMENT JS -->
     <script type="text/javascript" src="/scripts/moment.min.js"></script>
 
+    <!-- MOMENT TIMEZONE JS -->
+    <script type="text/javascript" src="/scripts/moment_timezone.js"></script>
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -52,7 +55,8 @@
     </nav>
 
     <!-- MAIN WRAPPER -->
-    <div class="main-wrapper" data-id="<%= event.event_id %>">
+    <!-- <div class="main-wrapper" data-id="<%= event.event_id %>"> -->
+    <div class="main-wrapper" data-id="<%= event.id %>">
       <!-- EVENT HEADER -->
       <div class="event-header">
         <h2><%= event.title %></h2>
@@ -82,7 +86,6 @@
             />
             <input
               type="text"
-              value="<%= event.name %>"
               id="participant_name"
               placeholder="Enter your name"
               required="required"
@@ -91,14 +94,10 @@
             />
             <input
               type="email"
-              value="<%= event.email %>"
               id="participant_email"
               placeholder="Enter your email"
               required="required"
             />
-            <img src="https://www.pngfind.com/pngs/m/5-59769_emoticon-text-smiley-messaging-emoji-png-image-high.png" alt="Smiley face" width="30" height="30" />
-            <input type="text" id="participant_name" placeholder="Enter your name" required="required" maxlength="64" aria-label="Your name" />
-            <input type="email" id="participant_email" placeholder="Enter your email" required="required" />
           </div>
           <!-- row containing the votes count -->
           <ul class="dates_list">
@@ -133,12 +132,13 @@
             <button type="submit">Submit</button>
           </div>
         </form>
-      </div>
-    </div> -->
-    <form>
-      <a id="event-submit-btn" class="btn btn-outline-light btn-lg" href="#">Submit</a>
-    </form>
-
+      </div> -->
+      <form>
+        <a id="event-submit-btn" class="btn btn-outline-light btn-lg" href="#"
+          >Submit</a
+        >
+      </form>
+    </div>
 
     <!-- Bootstrap JS -->
     <script

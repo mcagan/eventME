@@ -5,19 +5,23 @@ module.exports = (db) => {
   // EVENT ROUTER TO RENDER EVENT PAGE - TEST - BY LUANA
   router.get("/event/:id", (req, res) => {
     const ajax = req.query.ajax;
+    // console.log('check this', req.params);
     db.query(
       `
-      SELECT *
+      SELECT events.title, users.name, events.location, dates.start_date, dates.end_date, COUNT(votes.id) AS vote_count
       FROM events
-      JOIN users ON user_id = users.id
-      JOIN dates ON event_id = events.id
-      WHERE events.id = $1
+      JOIN users ON events.user_id = users.id
+      JOIN dates ON dates.event_id = events.id
+      JOIN votes ON votes.event_id = events.id AND votes.user_id = events.user_id
+      GROUP BY events.id, dates.id, users.name
+      HAVING events.id = $1;
       `,
       [req.params.id]
     )
       .then((data) => {
-        const event = data.rows[0];
-        console.log(event);
+        let event = data.rows[0];
+        event.id = req.params.id;
+        console.log("CHECK THIS HERE", event);
         if (ajax) {
           res.json({ event });
         } else {
