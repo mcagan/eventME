@@ -42,6 +42,20 @@ body {
   color: #343a40;
 }
 
+.share-event-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.share-event-link p {
+  padding: 5px 10px;
+  border-bottom: #343a4081 1px solid;
+}
+.share-event-link div {
+  margin-top: -5px;
+}
+
 .bolder-weigth {
   font-weight: 700;
 }
