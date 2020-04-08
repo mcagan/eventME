@@ -1,6 +1,11 @@
-function objectifyForm(formArray) {
-  //serialize data function
+//extract information from the form
+//extract the schedule from the calendar
+//create an output object that contains the information
+//ajax request post to /events => send the output object along
+//on the backend side receive this object available through req.body
 
+//helper function to create an object from the form input
+function objectifyForm(formArray) {
   var returnArray = {};
   for (var i = 0; i < formArray.length; i++) {
     returnArray[formArray[i]["name"]] = formArray[i]["value"];
@@ -16,8 +21,6 @@ $(document).ready(() => {
     const array = $("#event-submit").serializeArray();
     let values = objectifyForm(array);
     values.events = userEvents;
-    console.log(userEvents);
-    console.log(values);
     $.ajax({ type: "POST", url: "/events", data: values })
       .done(function (result) {
         return result;
@@ -32,12 +35,6 @@ $(document).ready(() => {
       });
   });
 });
-
-//extract information from the form
-//extract the schedule from the calendar through the calendar variable
-//create an output object that contains the information
-//ajax request post to /events => send the output object along
-//on the backend side receive this object available through req.body
 
 // const addEvent = function (data, user) {
 //   const queryText =

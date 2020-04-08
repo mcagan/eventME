@@ -35,7 +35,6 @@ module.exports = (db) => {
     // .query(queryText, values)
     // .then((res) => addEvent(data, Number(res.rows[0]).then((res) => ))
     // .catch((err) => console.log("Err", err));
-    console.log("test");
     console.log(req.body);
   });
   return router;
