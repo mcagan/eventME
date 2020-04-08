@@ -1,13 +1,20 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
-}
-
-.main-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.main-wrapper {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+// EVENT HEARDER STARTS HERE
 
 .event-header {
   margin-top: 125px;
@@ -26,46 +33,78 @@ body {
   color: #343a40;
   text-align: center;
   padding-bottom: 5%;
-  border-bottom: #343a4081 1px solid;
 }
 
 .event-author {
   width: 80%;
-  height: auto;
+  height: 20px;
+  background-color: #343a40;
+  padding: 23px 10px 6px 10px;
+  margin-top: -25px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 .event-header p {
   font-size: 0.8em;
-  color: #343a40;
+  color: white;
 }
 
 .share-event-link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 4%;
 }
 
 .share-event-link p {
+  margin-top: 20px;
+  color: #343a40;
   padding: 5px 10px;
-  border-bottom: #343a4081 1px solid;
 }
 .share-event-link div {
-  margin-top: -5px;
+  margin-top: -20px;
 }
 
 .bolder-weigth {
   font-weight: 700;
 }
 
+
+// POLL CONTAINER STARTS HERE
+
 .poll_container {
-  width: 80vw;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border: #343a4081 2px solid;
+}
+
+.poll_container_participant {
+  width: 100%;
+  height: auto;
+  padding: 5% 0px;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #343a40;
+}
+
+::placeholder {
+  color: #343a40;
+  padding-left: 10px;
+}
+
+.poll_container_participant div:not(:last-child) {
+  margin-right: 40px;
 }
 
 .date_list_row {
@@ -99,5 +138,23 @@ body {
 }
 
 #poll-submit-btn {
-  background-color: rgba(49, 10, 187, 0.8);
+  background-color: #343a40;
+  margin-top: 30%;
+}
+
+
+
+/* breakpoint is maximum width of around 420px */
+@media only screen and (max-width: 425px) {
+  .poll_container_participant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .poll_container_participant div:not(:last-child) {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+  }
 }
