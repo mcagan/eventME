@@ -1,27 +1,37 @@
-// $(() => {
-//   $("#submit").submit(function(event) {
-//   event.preventDefault();
-//   $("#error").empty();
-//   let tweetLength = $("textarea").val().length;
-//   let data = $(this).serialize();
-//   if (tweetLength === 0) {
-//     $("#error").text("⚠️ Please enter a tweet");
-//   } else if (tweetLength > 140) {
-//     $("#error").text("⚠️ Character count can't exceed maximum");
-//   } else {
-//     $.ajax({ method: "POST", url: "/tweets", data })
-//       .done(function(result) {
-//         $("#tweet-text").val("");
-//         loadtweets(result);
-//       })
-//       .fail(function(error) {
-//         // Problem with the request
-//         console.log(`Error with the request: ${error.message}`);
-//       })
-//       .always(function() {
-//         // This will always run
-//         console.log("request completed");
-//       });
-//   }
-// })
-// });
+//extract information from the form
+//extract the schedule from the calendar
+//create an output object that contains the information
+//ajax request post to /events => send the output object along
+//on the backend side receive this object available through req.body
+
+//helper function to create an object from the form input
+function objectifyForm(formArray) {
+  var returnArray = {};
+  for (var i = 0; i < formArray.length; i++) {
+    returnArray[formArray[i]["name"]] = formArray[i]["value"];
+  }
+  return returnArray;
+}
+
+$(document).ready(() => {
+  // let userEvents = [];
+  // window.userEvents = userEvents;
+  $("#event-submit-button").click(function (event) {
+    event.preventDefault();
+    const array = $("#event-submit").serializeArray();
+    let values = objectifyForm(array);
+    values.events = userEvents;
+    $.ajax({ type: "POST", url: "/events", data: values })
+      .done(function (result) {
+        return result;
+      })
+      .fail(function (error) {
+        // Problem with the request
+        console.log(`Error with the request: ${error.message}`);
+      })
+      .always(function () {
+        // This will always run
+        console.log("request completed");
+      });
+  });
+});
