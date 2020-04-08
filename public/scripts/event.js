@@ -13,7 +13,7 @@ const createListOfDates = function (listObj) {
   let $divDate = $("<div>").addClass("date_option");
   $("<div>")
     .addClass("d-month")
-    .text(moment(listObj.date).format("MMM"))
+    .text(moment(listObj.date).format("MMMM Do YYYY, h:mm:ss a"))
     .appendTo($divDate);
   $("<div>")
     .addClass("d-date")

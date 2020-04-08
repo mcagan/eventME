@@ -7,13 +7,11 @@ module.exports = (db) => {
     const ajax = req.query.ajax;
     db.query(
       `
-      SELECT events.title, users.name, events.location, dates.date, COUNT(votes.id) AS vote_count
+      SELECT *
       FROM events
       JOIN users ON user_id = users.id
-      JOIN dates ON dates.event_id = events.id
-      JOIN votes ON votes.event_id = events.id
+      JOIN dates ON event_id = events.id
       WHERE events.id = $1
-      GROUP BY events.id, dates.id;
       `,
       [req.params.id]
     )
