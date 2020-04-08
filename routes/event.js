@@ -50,12 +50,9 @@ module.exports = (db) => {
     const queryText =
       "INSERT INTO dates (start_date, end_date, allDay, event_id) VALUES ($1, $2, $3, $4)";
     for (let date of data.events) {
-      let values = [
-        date.start.toString(),
-        date.end.toString(),
-        date.allDay,
-        event_id,
-      ];
+      let start = new Date(date.start);
+      let end = new Date(date.end);
+      let values = [start, end, date.allDay, event_id];
       return db
         .query(queryText, values)
         .then((res) => res.rows)
