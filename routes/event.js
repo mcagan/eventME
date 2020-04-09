@@ -81,7 +81,8 @@ module.exports = (db) => {
       )
       .catch((err) => console.log("Err", err));
   });
-  let URL = getURLfromTitle(req.body.title);
-  let redirectPage = `/event/${URL}`;
-  res.redirect(redirectPage);
+  // let URL = getURLfromTitle(req.body.title);
+  // let redirectPage = `/event/${URL}`;
+  // res.redirect(redirectPage);
+  return router;
 };
