@@ -1,31 +1,6 @@
 body {
   font-family: "Roboto", sans-serif;
 
-  /*--- Navigation ----*/
-  .navbar {
-    background-color: rgba(49, 10, 187, 0.6) !important;
-    font-weight: 700;
-    text-shadow: 0.5px 0.5px 1px black;
-    a {
-      color: white;
-      text-decoration: none;
-    }
-  }
-
-  .navbar-nav li {
-    padding-right: 1em;
-  }
-
-  .navbar-dark .navbar-nav .nav-link {
-    color: white;
-    font-size: large;
-    text-transform: uppercase;
-  }
-
-  .navbar-dark .navbar-nav .nav-link:hover {
-    color: white;
-  }
-
   /*--- Main content ---*/
 
   #main-content {
