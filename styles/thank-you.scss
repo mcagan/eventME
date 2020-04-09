@@ -16,21 +16,39 @@ body {
 
 // EVENT HEARDER STARTS HERE
 
-.event-header {
+.thank-you-header {
   margin-top: 125px;
-  width: 80vw;
+  width: 60vw;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.event-header h2 {
+.thank-you-header h2 {
   width: 80%;
   height: auto;
   font-weight: 700;
   font-size: 2em;
-  color: #343a40;
+  color: rgba(49, 10, 187, 1.0);
   text-align: center;
-  padding-bottom: 5%;
+  padding-bottom: 3%;
+  border-bottom: rgba(49, 10, 187, 0.6) 2px solid;
+  margin-bottom: 5%;
+}
+
+.redirect-links {
+  width: 80%;
+  height: auto;
+  font-size: 1em;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 10px;
+}
+
+.redirect-links a {
+  cursor: pointer;
 }
