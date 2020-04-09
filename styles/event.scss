@@ -13,7 +13,6 @@ body {
   align-items: center;
 }
 
-
 // EVENT HEARDER STARTS HERE
 
 .event-header {
@@ -30,7 +29,7 @@ body {
   height: auto;
   font-weight: 700;
   font-size: 2em;
-  color: rgba(49, 10, 187, 1.0);
+  color: rgba(49, 10, 187, 1);
   text-align: center;
   padding-bottom: 5%;
 }
@@ -38,7 +37,7 @@ body {
 .event-author {
   width: 80%;
   height: 20px;
-  background-color: rgba(49, 10, 187, 1.0);
+  background-color: rgba(49, 10, 187, 1);
   padding: 23px 10px 6px 10px;
   margin-top: -25px;
   display: flex;
@@ -62,7 +61,7 @@ body {
 
 .share-event-link p {
   margin-top: 20px;
-  color: rgba(49, 10, 187, 1.0);
+  color: rgba(49, 10, 187, 1);
   padding: 5px 10px;
 }
 .share-event-link div {
@@ -73,7 +72,6 @@ body {
   font-weight: 700;
 }
 
-
 // POLL CONTAINER STARTS HERE
 
 .poll_container {
@@ -83,7 +81,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: rgba(49, 10, 187, 1.0)81 2px solid;
+  border: rgba(49, 10, 187, 1) 81 2px solid;
 }
 
 // header part of the poll
@@ -96,7 +94,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: rgba(49, 10, 187, 1.0);
+  background-color: rgba(49, 10, 187, 1);
 }
 
 .icon {
@@ -113,7 +111,7 @@ body {
 }
 
 ::placeholder {
-  color: rgba(49, 10, 187, 1.0);
+  color: rgba(49, 10, 187, 1);
   padding-left: 10px;
 }
 
@@ -143,7 +141,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-bottom: rgba(49, 10, 187, 1.0) 2px solid;
+  border-bottom: rgba(49, 10, 187, 1) 2px solid;
   padding-bottom: 15px;
 }
 
@@ -189,11 +187,9 @@ ul input {
 }
 
 #poll-submit-btn {
-  background-color: rgba(49, 10, 187, 1.0);
+  background-color: rgba(49, 10, 187, 1);
   margin-top: 30%;
 }
-
-
 
 /* breakpoint is maximum width of around 420px */
 @media only screen and (max-width: 425px) {
@@ -211,5 +207,50 @@ ul input {
     margin-right: 0px;
     margin-left: 0px;
     margin-bottom: 15px;
+    #event-submit-btn {
+      background-color: rgba(49, 10, 187, 0.8);
+    }
+
+    .popuptext {
+      display: none;
+      width: 25%;
+      background-color: rgba(49, 10, 187, 0.8);
+      color: #fff;
+      border-radius: 5px;
+      padding: 8px;
+      justify-content: space-around;
+      z-index: 1;
+      margin-bottom: 2%;
+    }
+
+    .popuptext p {
+      margin-top: 0;
+      margin-bottom: 0rem;
+    }
+
+    .popup-show {
+      display: flex;
+      -webkit-animation: fadeIn 1s;
+      animation: fadeIn 1s;
+    }
+
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 }
