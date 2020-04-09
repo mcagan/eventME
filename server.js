@@ -63,6 +63,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// thank you page route
+app.get("/thank-you", (req, res) => {
+  res.render("thankYou");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
