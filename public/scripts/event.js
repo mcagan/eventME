@@ -7,6 +7,7 @@
 $(document).ready(function () {
   // FUNCTION WILL CREATE THE DATES IN HTML FOR AN EVENT
   const createListOfDates = function (item) {
+    // let $maindivWrapper = $$("divdates_list_container");
     let $ulcontainAllList = $("ul.dates_list");
     let $liListRow = $("<li>")
       .addClass("date_list_row")
@@ -46,13 +47,14 @@ $(document).ready(function () {
     let $inputCheckBox = $("<input>")
       .attr("type", "checkbox")
       .attr("id", "poll_checkbox")
-      .attr("name", "to-be-decided")
-      .attr("value", "to-be-decided");
+      .attr("name", "checkbox-name")
+      .attr("value", item.date_id);
 
     $divDate.appendTo($liListRow);
     $divVoteCounter.appendTo($liListRow);
     $inputCheckBox.appendTo($liListRow);
     $liListRow.appendTo($ulcontainAllList);
+    // $ulcontainAllList.appendTo($maindivWrapper);
 
     // return final poll elements
     return $ulcontainAllList;
@@ -133,10 +135,16 @@ $(document).ready(function () {
     event.preventDefault();
     const array = $("#name-form").serializeArray();
     let votesObj = objectifyForm(array);
-    $.each($("input[name='to-be-decided']:checked"), function () {
-      votesObj.dates.push($(this).val());
+    votesObj.dates = [];
+    //$.each($("input[name='to-be-decided']:checked"), function () {
+
+    $("input[type=checkbox]").each(function () {
+      if ($("#poll_checkbox").is(":checked")) {
+        votesObj.dates.push($(this).val());
+      }
     });
-    $.ajax({ type: "POST", url: "/thank-you", data: votesArray })
+    console.log(votesObj);
+    $.ajax({ type: "POST", url: "/thank-you", data: votesObj })
       .done(function (result) {
         return result;
       })
@@ -151,8 +159,6 @@ $(document).ready(function () {
   });
 });
 
-//Handler on submit (prevent default)
-//then extract info from the form and put them in an object
 //Issue an ajax POST request action "/votes" (check with Luana)
 //update the UI (select query)
 //create the dynamic element/template for the user and append to html

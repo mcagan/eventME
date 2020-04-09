@@ -14,26 +14,10 @@
       rel="stylesheet"
     />
 
-    <!-- EVENT SCSS -->
-    <link rel="stylesheet" href="/styles/event.css" type="text/css" />
-
-    <!-- COPIED FROM INDEX -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <!-- ////////////////// -->
-
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- EVENT JS JQUERY -->
-    <script type="text/javascript" src="/scripts/event.js"></script>
-
-    <!-- MOMENT JS -->
-    <script type="text/javascript" src="/scripts/moment.min.js"></script>
-
-    <!-- MOMENT TIMEZONE JS -->
-    <script type="text/javascript" src="/scripts/moment_timezone.js"></script>
+    <!-- GOOGLE ICON -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -43,102 +27,137 @@
       crossorigin="anonymous"
     />
 
+    <!-- EVENT SCSS -->
+    <link rel="stylesheet" href="/styles/event.css" type="text/css" />
+
+    <!-- COPIED FROM INDEX -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <!-- ////////////////// -->
+
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- EVENT JS JQUERY -->
+    <script type="text/javascript" src="/scripts/event.js"></script>
+
+    <!-- NAV SCSS -->
+    <link rel="stylesheet" href="/styles/navpatials.css" type="text/css" />
+    <!-- MOMENT JS -->
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
+
+    <!-- MOMENT TIMEZONE JS -->
+    <script type="text/javascript" src="/scripts/moment_timezone.js"></script>
+
     <title>eventME - Event</title>
   </head>
   <!-- //////////////// -->
   <!-- BODY STARTS HERE -->
   <!-- //////////////// -->
-  <body>
+  <body data-target="navbarResponsive">
     <!-- PLACEHOLDER NAV -->
-    <nav style="width: 100vw; height: 100px; background-color: blue;">
-      placeholder
-    </nav>
+    <%- include('partials/_header') %>
 
     <!-- MAIN WRAPPER -->
-    <!-- <div class="main-wrapper" data-id="<%= event.event_id %>"> -->
     <div class="main-wrapper" data-id="<%= event[0].event_id %>">
       <!-- EVENT HEADER -->
       <div class="event-header">
         <h2><%= event[0].title %></h2>
-        <p><span class="bolder-weigth">By:</span> <%= event[0].name %></p>
-        <p>
-          <span class="bolder-weigth">Location:</span> <%= event[0].location %>
-        </p>
-        <!-- NEED TO CREATE BUTTON FOR CREATOR ONLY -->
-        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-          <a class="a2a_button_email"></a>
-          <a class="a2a_button_facebook_messenger"></a>
-          <a class="a2a_button_linkedin"></a>
-          <a class="a2a_button_copy_link"></a>
+        <div class="event-author">
+          <p><span class="bolder-weigth">BY:</span> <%= event[0].name %></p>
+          <p>
+            <span class="bolder-weigth">LOCATION:</span> <%= event[0].location %>
+          </p>
+        </div>
+        <!-- SHARE EVENT LINK -->
+        <div class="share-event-link">
+          <p>share this event</p>
+          <div class="a2a_kit a2a_kit_size_24 a2a_default_style">
+            <a class="a2a_button_email"></a>
+            <a class="a2a_button_facebook_messenger"></a>
+            <a class="a2a_button_linkedin"></a>
+            <a class="a2a_button_copy_link"></a>
+          </div>
         </div>
       </div>
 
       <!-- EVENT BODY / POLL -->
-<form id="name-form">
-  <div>
-    <div class="poll_container">
-      <!-- row containing date information + the first cell is always empty -->
-      <div class="poll_container_participant">
-        <img
-          src="https://www.pngfind.com/pngs/m/5-59769_emoticon-text-smiley-messaging-emoji-png-image-high.png"
-          alt="Smiley face"
-          width="30"
-          height="30"
-        />
-        <input
-          type="text"
-          id="participant_name"
-          placeholder="Enter your name"
-          required="required"
-          maxlength="64"
-          aria-label="Your name"
-        />
-        <input
-          type="email"
-          id="participant_email"
-          placeholder="Enter your email"
-          required="required"
-        />
-      </div>
-      <!-- row containing the votes count -->
-      <ul class="dates_list">
-        <!-- every new date is it's own li with date / vote counter / and checkbox -->
-        <!-- <li class="date_list_row">
-          date
-          <div class="date_option">
-            <div class="d-month">Apr</div>
-            <div class="d-date">7</div>
-            <div class="d-day">Tue</div>
+      <form id="name-form">
+        <div>
+          <div class="poll_container">
+            <!-- row containing date information + the first cell is always empty -->
+            <div class="poll_container_participant">
+              <div class="icon">
+                <span class="material-icons">
+                  account_circle
+                </span>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="participant_name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required="required"
+                  maxlength="64"
+                />
+              </div>
+              <div class="input-container">
+                <input
+                  type="email"
+                  id="participant_name"
+                  name="email"
+                  placeholder="Enter your email"
+                  required="required"
+                  maxlength="64"
+                />
+              </div>
+            </div>
+            <!-- row containing the votes count -->
+            <div class="dates_list_container">
+              <ul class="dates_list">
+                <!-- every new date is it's own li with date / vote counter / and checkbox
+                <li class="date_list_row"> -->
+                  <!-- date -->
+                  <!-- <div class="date_option">
+                    <div class="d-month">Apr</div>
+                    <div class="d-date">30</div>
+                    <div class="d-day">Tue</div>
+                    <div class="d-time">5PM to 9PM</div>
+                  </div> -->
+                  <!-- vote counter -->
+                  <!-- <div class="vote_counter">
+                    <div>0 votes</div>
+                  </div> -->
+                  <!-- checkbox -->
+                  <!-- <input type="checkbox" id="" name="" value="" />
+                </li> -->
+                <!-- <li class="date_list_row"> -->
+                  <!-- date -->
+                  <!-- <div class="date_option">
+                    <div class="d-month">Apr</div>
+                    <div class="d-date">30</div>
+                    <div class="d-day">Tue</div>
+                    <div class="d-time">5PM to 9PM</div>
+                  </div> -->
+                  <!-- vote counter -->
+                  <!-- <div class="vote_counter">
+                    <div>0 votes</div>
+                  </div> -->
+                  <!-- checkbox -->
+                  <!-- <input type="checkbox" id="" name="" value="" />
+                </li> -->
+              </ul>
+            </div>
           </div>
-          vote counter
-          <div class="vote_counter">
-            <div>0 votes</div>
-          </div>
-          checkbox
-          <input type="checkbox" id="" name="" value="">
-        </li> -->
-      </ul>
-    </div>
-  </div>
-
-  <!-- COMMENT SESSION TO DO IF TIME -->
-  <!-- <div>
-    <form id="comment-event">
-      <textarea
-        name="text"
-        id="comment-text"
-        placeholder="Leave your comment!"
-      ></textarea>
-      <div class="comment-event-btn">
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-  </div> -->
-    <a id="event-submit-btn" class="btn btn-outline-light btn-lg" href="#"
-      >Submit</a
-    >
-</div>
-</form>
+        </div>
+          <button id="poll-submit-btn" class="btn btn-outline-light btn-lg" type="submit">
+            Submit
+          </button>
+      </form>
 
     <!-- Bootstrap JS -->
     <script

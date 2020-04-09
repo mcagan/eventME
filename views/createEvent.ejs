@@ -2,86 +2,133 @@
 <html lang="en">
   <head>
     <title>Create an Event</title>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
+    <!--DEFAULT STYLESHEETS-->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css" />
 
+    <!--CREATE EVENT STYLESHEET-->
+    <link rel="stylesheet" href="/styles/create-event.css" type="text/css" />
+
+    <!-- NAV SCSS -->
+    <link rel="stylesheet" href="/styles/navpatials.css" type="text/css" />
+
+    <!--CALENDAR STYLESHEETS-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css"
+    />
+
+    <!--JQUERY FOR CREATE EVENT-->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script src='https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js'></script>
-    <script src='https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js'></script>
-    <script src='https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js'></script>
-    <script src='https://unpkg.com/@fullcalendar/interaction@4.4.0/main.min.js'></script>
+    <script type="text/javascript" src="/scripts/createEvent.js"></script>
 
+    <!--SCRIPTS FOR CALENDAR API-->
+    <script src="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js"></script>
+    <script src="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js"></script>
+    <script src="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js"></script>
+    <script src="https://unpkg.com/@fullcalendar/interaction@4.4.0/main.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        console.log("DOM ready")
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ['dayGrid', 'timeGrid','interaction'],
-        header: {
-         left: 'prev,next today',
-         center: 'title',
-         right: 'dayGridMonth,timeGridWeek'
-         },
-        defaultView: 'timeGridWeek',
-        selectable: true
-       });
-       calendar.render();
-  });
+      var userEvents = [];
     </script>
-
-
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM ready");
+        const calendarEl = document.getElementById("calendar");
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: ["dayGrid", "timeGrid", "interaction"],
+          header: {
+            left: 'prev',
+            center: 'title',
+            right: 'next',
+            height: 200,
+          },
+          events: [],
+          eventColor: 'rgba(49, 10, 187, 0.8)',
+          eventTextColor: 'white',
+          timeZone: 'UTC',
+          defaultView: "timeGridWeek",
+          selectable: true,
+          dragScroll: true,
+          select: function (info) {
+            calendar.addEvent({
+              start: info.start,
+              end: info.end,
+              allDay: info.allDay,
+            });
+            let event = {
+              start: info.start,
+              end: info.end,
+              allDay: info.allDay,
+            };
+            userEvents.push(event);
+            console.log(userEvents);
+            calendar.unselect();
+          },
+        });
+        calendar.render();
+      });
+    </script>
+    <body data-spy="scroll" data-target="navbarResponsive"></body>
   </head>
 
+<!--BODY-->
   <body>
+      <!-- Navigation -->
+      <%- include('partials/_header') %>
+    <!--Creation form-->
+    <div id="main-content">
     <h1>Create an Event</h1>
     <section class="event-creation-form">
-      <form
-        method="POST"
-        action="/events"
-        Content-Type="application/x-www-form-urlencoded"
-        id="submit"
-         >
-        <h3>Event Title: </h3>
-        <textarea
-          name="text"
+      <form Content-Type="application/x-www-form-urlencoded" id="event-submit">
+        <h3>Event Title:</h3>
+        <input
+          name="title"
           id="event-title"
           placeholder="Enter the event title"
-          ></textarea>
-        <h3>Description: </h3>
-        <textarea
-          name="text"
+        ></input>
+        <h3>Description:</h3>
+        <input
+          name="description"
           id="event-description"
           placeholder="Enter the description"
-          ></textarea>
-        <h3>Location: </h3>
-        <textarea
-          name="text"
+        ></input>
+        <h3>Location:</h3>
+        <input
+          name="location"
           id="event-location"
           placeholder="Enter event location"
-          ></textarea>
-        <h3>Name: </h3>
-        <textarea
-          name="text"
+        ></input>
+        <h3>Name:</h3>
+        <input
+          name="name"
           id="creator-name"
           placeholder="Enter your name"
-          ></textarea>
-        <h3>Email: </h3>
-        <textarea
-          name="text"
+        ></input>
+        <h3>Email:</h3>
+        <input
+          name="email"
           id="creator-email"
           placeholder="Enter your email"
-          ></textarea>
-        <div id='calendar'></div>
+        ></input>
         <div class="event-submit">
-          <button type="submit">Create</button>
-            </div>
-          </form>
+          <p>Select your dates and click create:</p>
+          <button id="event-submit-button" class="btn btn-outline-light btn-lg" type="submit">Create</button>
+        </div>
+        <div id="calendar"></div>
+      </form>
     </section>
+    </div>
   </body>
 </html>

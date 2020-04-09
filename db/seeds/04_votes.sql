@@ -1,12 +1,4 @@
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (1, 1, 1, 1, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (2, 2, 1, 1, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (3, 1, 1, 2, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (4, 2, 1, 2, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (5, 1, 1, 3, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (6, 2, 1, 3, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (7, 1, 1, 4, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (8, 2, 1, 4, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (9, 1, 2, 5, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (10, 2, 2, 5, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (11, 1, 2, 6, TRUE);
-INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (12, 2, 2, 6, TRUE);
+INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (125, 8, 9, 20, TRUE);
+INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (126, 8, 10, 21, TRUE);
+INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (127, 9, 9, 20, TRUE);
+INSERT INTO votes (id, user_id, event_id, date_id, yes_no) VALUES (128, 9, 10, 21, TRUE);
