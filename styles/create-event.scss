@@ -6,6 +6,10 @@ body {
     background-color: rgba(49, 10, 187, 0.6) !important;
     font-weight: 700;
     text-shadow: 0.5px 0.5px 1px black;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 
   .navbar-nav li {

@@ -38,6 +38,7 @@ module.exports = (db) => {
     return result;
   };
 
+  //Add event to database from form
   const addEvent = function (data, user_id) {
     const queryText =
       "INSERT INTO events (title, URL, description, location, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING events.id AS id;";
@@ -46,6 +47,7 @@ module.exports = (db) => {
     return db.query(queryText, values).catch((err) => console.log("Err", err));
   };
 
+  //Add event dates to database from form
   const addDate = function (data, event_id) {
     const queryText =
       "INSERT INTO dates (start_date, end_date, allDay, event_id) VALUES ($1, $2, $3, $4)";
@@ -58,7 +60,7 @@ module.exports = (db) => {
         .catch((err) => console.log("Err", err));
     }
   };
-
+  //Get event unique url using title from form
   const getURLfromTitle = function (title) {
     const queryText = "SELECT url FROM events WHERE title = $1;";
     const values = [title];
