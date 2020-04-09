@@ -38,6 +38,15 @@ module.exports = (db) => {
     return result;
   };
 
+  const getURLfromTitle = function (title) {
+    const queryText = "SELECT * FROM events WHERE title = $1;";
+    const values = [title];
+    return pool
+      .query(queryText, values)
+      .then((res) => res.rows[0].url)
+      .catch((err) => console.log("Err", err));
+  };
+
   const addEvent = function (data, user_id) {
     const queryText =
       "INSERT INTO events (title, URL, description, location, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING events.id AS id;";
@@ -72,5 +81,7 @@ module.exports = (db) => {
       )
       .catch((err) => console.log("Err", err));
   });
-  return router;
+  let URL = getURLfromTitle(req.body.title);
+  let redirectPage = `/event/${URL}`;
+  res.redirect(redirectPage);
 };

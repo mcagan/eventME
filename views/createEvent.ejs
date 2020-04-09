@@ -3,9 +3,12 @@
   <head>
     <title>Create an Event</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="../public/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="../public/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="../public/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="../public/styles/create-event.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css"
@@ -18,6 +21,7 @@
       rel="stylesheet"
       href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css"
     />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/createEvent.js"></script>
@@ -38,8 +42,10 @@
             left: "prev,next today",
             center: "title",
             right: "dayGridMonth,timeGridWeek",
+            height: 200,
           },
           events: [],
+          timeZone: 'UTC',
           defaultView: "timeGridWeek",
           selectable: true,
           dragScroll: true,
@@ -63,9 +69,18 @@
         // return userEvents;
       });
     </script>
+    <body data-spy="scroll" data-target="navbarResponsive"></body>
   </head>
 
   <body>
+    <div id="home">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/views/index.ejs"></a>
+          <h1 class="homepage_logo">eventMe.</h1>
+        </a>
+      </nav>
+    <!--Creation form-->
     <h1>Create an Event</h1>
     <section class="event-creation-form">
       <form Content-Type="application/x-www-form-urlencoded" id="event-submit">
@@ -99,11 +114,11 @@
           id="creator-email"
           placeholder="Enter your email"
         ></input>
-        <div id="calendar"></div>
-        <input type="hidden" id="hiddenVar" />
         <div class="event-submit">
+          <p>Select your dates and click create:</p>
           <button id="event-submit-button" type="submit">Create</button>
         </div>
+        <div id="calendar"></div>
       </form>
     </section>
   </body>
