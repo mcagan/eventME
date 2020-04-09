@@ -2,13 +2,18 @@
 <html lang="en">
   <head>
     <title>Create an Event</title>
+    <!--DEFAULT STYLESHEETS-->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
 
-    <link rel="stylesheet" href="../public/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="../public/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="../public/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="../public/styles/create-event.css" type="text/css" />
+    <!--CREATE EVENT STYLESHEET-->
+    <link rel="stylesheet" href="/styles/create-event.css" type="text/css" />
+
+    <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+    <!--CALENDAR STYLESHEETS-->
     <link
       rel="stylesheet"
       href="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css"
@@ -22,9 +27,11 @@
       href="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.css"
     />
 
-
+    <!--JQUERY FOR CREATE EVENT-->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/createEvent.js"></script>
+
+    <!--SCRIPTS FOR CALENDAR API-->
     <script src="https://unpkg.com/@fullcalendar/core@4.4.0/main.min.js"></script>
     <script src="https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js"></script>
     <script src="https://unpkg.com/@fullcalendar/timegrid@4.4.0/main.min.js"></script>
@@ -39,9 +46,9 @@
         let calendar = new FullCalendar.Calendar(calendarEl, {
           plugins: ["dayGrid", "timeGrid", "interaction"],
           header: {
-            left: "prev,next today",
+            left: "prev,next",
             center: "title",
-            right: "dayGridMonth,timeGridWeek",
+            right: "",
             height: 200,
           },
           events: [],
@@ -66,12 +73,12 @@
           },
         });
         calendar.render();
-        // return userEvents;
       });
     </script>
     <body data-spy="scroll" data-target="navbarResponsive"></body>
   </head>
 
+<!--BODY-->
   <body>
     <div id="home">
       <!-- Navigation -->
@@ -81,6 +88,7 @@
         </a>
       </nav>
     <!--Creation form-->
+    <div id="main-content">
     <h1>Create an Event</h1>
     <section class="event-creation-form">
       <form Content-Type="application/x-www-form-urlencoded" id="event-submit">
@@ -116,10 +124,11 @@
         ></input>
         <div class="event-submit">
           <p>Select your dates and click create:</p>
-          <button id="event-submit-button" type="submit">Create</button>
+          <button id="event-submit-button" class="btn btn-outline-light btn-lg" type="submit">Create</button>
         </div>
         <div id="calendar"></div>
       </form>
     </section>
+    </div>
   </body>
 </html>
