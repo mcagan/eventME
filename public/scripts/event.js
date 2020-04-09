@@ -119,6 +119,36 @@ $(document).ready(function () {
       $(this).find(".popuptext").removeClass("popup-show");
     }
   });
+
+  //helper function to create an object from the form input
+  const objectifyForm = function (formArray) {
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++) {
+      returnArray[formArray[i]["name"]] = formArray[i]["value"];
+    }
+    return returnArray;
+  };
+
+  $("#poll-submit-btn").click(function (event) {
+    event.preventDefault();
+    const array = $("#name-form").serializeArray();
+    let votesObj = objectifyForm(array);
+    $.each($("input[name='to-be-decided']:checked"), function () {
+      votesObj.dates.push($(this).val());
+    });
+    $.ajax({ type: "POST", url: "/thank-you", data: votesArray })
+      .done(function (result) {
+        return result;
+      })
+      .fail(function (error) {
+        // Problem with the request
+        console.log(`Error with the request: ${error.message}`);
+      })
+      .always(function () {
+        // This will always run
+        console.log("request completed");
+      });
+  });
 });
 
 //Handler on submit (prevent default)

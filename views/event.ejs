@@ -74,71 +74,71 @@
       </div>
 
       <!-- EVENT BODY / POLL -->
-      <div>
-        <div class="poll_container">
-          <!-- row containing date information + the first cell is always empty -->
-          <div class="poll_container_participant">
-            <img
-              src="https://www.pngfind.com/pngs/m/5-59769_emoticon-text-smiley-messaging-emoji-png-image-high.png"
-              alt="Smiley face"
-              width="30"
-              height="30"
-            />
-            <input
-              type="text"
-              id="participant_name"
-              placeholder="Enter your name"
-              required="required"
-              maxlength="64"
-              aria-label="Your name"
-            />
-            <input
-              type="email"
-              id="participant_email"
-              placeholder="Enter your email"
-              required="required"
-            />
-          </div>
-          <!-- row containing the votes count -->
-          <ul class="dates_list">
-            <!-- every new date is it's own li with date / vote counter / and checkbox -->
-            <!-- <li class="date_list_row">
-              date
-              <div class="date_option">
-                <div class="d-month">Apr</div>
-                <div class="d-date">7</div>
-                <div class="d-day">Tue</div>
-              </div>
-              vote counter
-              <div class="vote_counter">
-                <div>0 votes</div>
-              </div>
-              checkbox
-              <input type="checkbox" id="" name="" value="">
-            </li> -->
-          </ul>
-        </div>
+<form id="name-form">
+  <div>
+    <div class="poll_container">
+      <!-- row containing date information + the first cell is always empty -->
+      <div class="poll_container_participant">
+        <img
+          src="https://www.pngfind.com/pngs/m/5-59769_emoticon-text-smiley-messaging-emoji-png-image-high.png"
+          alt="Smiley face"
+          width="30"
+          height="30"
+        />
+        <input
+          type="text"
+          id="participant_name"
+          placeholder="Enter your name"
+          required="required"
+          maxlength="64"
+          aria-label="Your name"
+        />
+        <input
+          type="email"
+          id="participant_email"
+          placeholder="Enter your email"
+          required="required"
+        />
       </div>
-
-      <!-- COMMENT SESSION TO DO IF TIME -->
-      <!-- <div>
-        <form id="comment-event">
-          <textarea
-            name="text"
-            id="comment-text"
-            placeholder="Leave your comment!"
-          ></textarea>
-          <div class="comment-event-btn">
-            <button type="submit">Submit</button>
+      <!-- row containing the votes count -->
+      <ul class="dates_list">
+        <!-- every new date is it's own li with date / vote counter / and checkbox -->
+        <!-- <li class="date_list_row">
+          date
+          <div class="date_option">
+            <div class="d-month">Apr</div>
+            <div class="d-date">7</div>
+            <div class="d-day">Tue</div>
           </div>
-        </form>
-      </div> -->
-      <form>
-        <a id="event-submit-btn" class="btn btn-outline-light btn-lg" href="#"
-          >Submit</a
-        >
-      </form>
+          vote counter
+          <div class="vote_counter">
+            <div>0 votes</div>
+          </div>
+          checkbox
+          <input type="checkbox" id="" name="" value="">
+        </li> -->
+      </ul>
     </div>
+  </div>
+
+  <!-- COMMENT SESSION TO DO IF TIME -->
+  <!-- <div>
+    <form id="comment-event">
+      <textarea
+        name="text"
+        id="comment-text"
+        placeholder="Leave your comment!"
+      ></textarea>
+      <div class="comment-event-btn">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div> -->
+    <a id="event-submit-btn" class="btn btn-outline-light btn-lg" href="#"
+      >Submit</a
+    >
+</div>
+</form>
 
     <!-- Bootstrap JS -->
     <script
