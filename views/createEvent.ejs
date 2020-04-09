@@ -46,12 +46,14 @@
         let calendar = new FullCalendar.Calendar(calendarEl, {
           plugins: ["dayGrid", "timeGrid", "interaction"],
           header: {
-            left: "prev,next",
-            center: "title",
-            right: "",
+            left: 'prev',
+            center: 'title',
+            right: 'next',
             height: 200,
           },
           events: [],
+          eventColor: 'rgba(49, 10, 187, 0.8)',
+          eventTextColor: 'white',
           timeZone: 'UTC',
           defaultView: "timeGridWeek",
           selectable: true,
