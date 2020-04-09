@@ -7,6 +7,7 @@
 $(document).ready(function () {
   // FUNCTION WILL CREATE THE DATES IN HTML FOR AN EVENT
   const createListOfDates = function (item) {
+    // let $maindivWrapper = $$("divdates_list_container");
     let $ulcontainAllList = $("ul.dates_list");
     let $liListRow = $("<li>")
       .addClass("date_list_row")
@@ -53,6 +54,7 @@ $(document).ready(function () {
     $divVoteCounter.appendTo($liListRow);
     $inputCheckBox.appendTo($liListRow);
     $liListRow.appendTo($ulcontainAllList);
+    // $ulcontainAllList.appendTo($maindivWrapper);
 
     // return final poll elements
     return $ulcontainAllList;
