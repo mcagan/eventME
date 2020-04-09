@@ -38,15 +38,6 @@ module.exports = (db) => {
     return result;
   };
 
-  const getURLfromTitle = function (title) {
-    const queryText = "SELECT * FROM events WHERE title = $1;";
-    const values = [title];
-    return pool
-      .query(queryText, values)
-      .then((res) => res.rows[0].url)
-      .catch((err) => console.log("Err", err));
-  };
-
   const addEvent = function (data, user_id) {
     const queryText =
       "INSERT INTO events (title, URL, description, location, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING events.id AS id;";
@@ -68,21 +59,29 @@ module.exports = (db) => {
     }
   };
 
+  const getURLfromTitle = function (title) {
+    const queryText = "SELECT url FROM events WHERE title = $1;";
+    const values = [title];
+    return db.query(queryText, values).catch((err) => console.log("Err", err));
+  };
+
   router.post("/events", (req, res) => {
     const queryText =
       "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING id;";
     const values = [req.body.name, req.body.email];
+    const title = req.body.title;
     return db
       .query(queryText, values)
       .then((dbres) =>
         addEvent(req.body, Number(dbres.rows[0].id))
           .then((dbres) => addDate(req.body, Number(dbres.rows[0].id)))
-          .then(() => res.json("ok"))
+          .then(() => getURLfromTitle(title))
+          .then((dbres) => {
+            const redirectURL = `/event/${dbres.rows[0].url}`;
+            res.redirect(redirectURL);
+          })
       )
       .catch((err) => console.log("Err", err));
   });
-  // let URL = getURLfromTitle(req.body.title);
-  // let redirectPage = `/event/${URL}`;
-  // res.redirect(redirectPage);
   return router;
 };
