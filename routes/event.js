@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+////////// FUNCTION TO CREATE TIMESLOT STRUCTURE IN DB //////////////
 const createNewTimeSlot = (timeslot) => {
   const newTimeSlot = {
     date_id: timeslot.date_id,
@@ -40,7 +41,7 @@ const addTimeslots = (timeslotsArr) => {
     }
   }
 
-  // Counting the votes
+  // COUNTING THE VOTES
   return Object.values(timeslots).map((timeslot) => {
     timeslot.vote_count = timeslot.users.filter(
       (user) => user.yes_no === true
