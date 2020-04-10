@@ -50,9 +50,9 @@ This app was built upon as a mock to practice our HTML, CSS, JS, jQuery and AJAX
 
 ## Screenshots of app
 
-!["Homepage landing"]()
-!["Homepage body"]()
-!["Create event page 1"]()
-!["Create event page 2"]()
-!["Event detail page 1"]()
-!["Thank you page"]()
+!["Homepage landing"](https://github.com/mcagan/LHL_midterm_project/blob/master/public/docs/Homepage%20landing.png?raw=true)
+!["Homepage body"](https://github.com/mcagan/LHL_midterm_project/blob/master/public/docs/Homepage%20body.png?raw=true)
+!["Create event page 1"](https://github.com/mcagan/LHL_midterm_project/blob/master/public/docs/Create%20event%20page.png?raw=true)
+!["Create event page 2"](https://github.com/mcagan/LHL_midterm_project/blob/master/public/docs/Create%20event%20page%202.png?raw=true)
+!["Event detail page 1"](https://github.com/mcagan/LHL_midterm_project/blob/master/public/docs/Event%20detail%20page%201.png?raw=true)
+!["Thank you page"](https://github.com/mcagan/LHL_midterm_project/blob/master/public/docs/Thank%20you%20page.png?raw=true)
