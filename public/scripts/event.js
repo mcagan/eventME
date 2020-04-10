@@ -15,23 +15,23 @@ $(document).ready(function () {
     let $divDate = $("<div>").addClass("date_option");
     $("<div>")
       .addClass("d-month")
-      .text(moment(item.start_date).format("MMM"))
+      .text(moment.utc(item.start_date).format("MMM"))
       .appendTo($divDate);
     $("<div>")
       .addClass("d-date")
-      .text(moment(item.start_date).format("Do"))
+      .text(moment.utc(item.start_date).format("Do"))
       .appendTo($divDate);
     $("<div>")
       .addClass("d-day")
-      .text(moment(item.start_date).format("ddd"))
+      .text(moment.utc(item.start_date).format("ddd"))
       .appendTo($divDate);
     $("<div>")
       .addClass("d-time")
-      .text(moment(item.start_date).format("h:mm a"))
+      .text(moment.utc(item.start_date).format("h:mm a"))
       .appendTo($divDate);
     $("<div>")
       .addClass("d-time")
-      .text(` - ${moment(item.end_date).format("h:mm a")}`)
+      .text(` - ${moment.utc(item.end_date).format("h:mm a")}`)
       .appendTo($divDate);
     let $divVoteCounter = $("<div>").addClass("vote_counter");
     $("<p>").text(`${item.vote_count} vote(s)`).appendTo($divVoteCounter);
