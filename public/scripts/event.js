@@ -47,7 +47,7 @@ $(document).ready(function () {
     let $inputCheckBox = $("<input>")
       .attr("type", "checkbox")
       .attr("id", "poll_checkbox")
-      .attr("name", "checkbox-name")
+      .attr("name", "checkboxname")
       .attr("value", item.date_id);
 
     $divDate.appendTo($liListRow);
@@ -102,12 +102,12 @@ $(document).ready(function () {
   ////////////////////////////////////////////////////////////////////
 
   // Reading the id of the event comming from .main-wrapper that has data-id = event.id in the HTML
-  const eventId = $(".main-wrapper").data("id");
+  const eventURL = $(".main-wrapper").data("url");
 
   //const eventId = $(".main-wrapper").data("event.event_id");
 
   // ?ajax=true -> means that we want to get json data back from the backend route (otherwise we get full HTML)
-  requestDates(`/event/${eventId}?ajax=true`);
+  requestDates(`/event/${eventURL}?ajax=true`);
 
   //////////////////////////////////////////
   ////////// EVENT HANDLERS ///////////////
@@ -136,17 +136,16 @@ $(document).ready(function () {
     const array = $("#name-form").serializeArray();
     let votesObj = objectifyForm(array);
     votesObj.dates = [];
-    //$.each($("input[name='to-be-decided']:checked"), function () {
+    votesObj.event_id = $(".main-wrapper").data("id");
 
-    $("input[type=checkbox]").each(function () {
-      if ($("#poll_checkbox").is(":checked")) {
-        votesObj.dates.push($(this).val());
-      }
+    $("input[type=checkbox]:checked").each(function () {
+      console.log($(this).val());
+      votesObj.dates.push($(this).val());
     });
-    console.log(votesObj);
-    $.ajax({ type: "POST", url: "/thank-you", data: votesObj })
-      .done(function (result) {
-        return result;
+    console.log(votesObj.dates);
+    $.ajax({ type: "POST", url: "/votes", data: votesObj })
+      .done(function () {
+        window.location.replace("/thank-you");
       })
       .fail(function (error) {
         // Problem with the request

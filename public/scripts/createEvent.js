@@ -23,11 +23,12 @@ $(document).ready(() => {
     values.events = userEvents;
     $.ajax({ type: "POST", url: "/events", data: values })
       .done(function (result) {
-        return result;
+        window.location.replace(result.url);
       })
       .fail(function (error) {
         // Problem with the request
-        console.log(`Error with the request: ${error.message}`);
+        //console.log(`Error with the request: ${error.message}`);
+        console.log(error);
       })
       .always(function () {
         // This will always run
