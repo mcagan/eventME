@@ -9,15 +9,27 @@ body {
     flex-direction: column;
     align-items: center;
     size: 10px;
+    h1 {
+      border-style: solid;
+      padding: 8px;
+      border-radius: 0.4rem;
+      color: white;
+      background-color: #310abb;
+      margin-bottom: 5%;
+      margin-top: 5%;
+    }
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
-      h3 {
-        font-size: 2em;
-      }
       input {
         font-size: 2em;
+        border: none;
+        border-bottom: 2px solid;
+        border-color: rgba(0, 0, 0, 0.7);
+        width: 50%;
+        margin-bottom: 3rem;
+        text-align: center;
       }
       #calendar {
         width: 80%;
@@ -31,7 +43,7 @@ body {
         flex-direction: column;
         align-items: center;
         #event-submit-button {
-          background-color: rgba(49, 10, 187, 0.8);
+          background-color: rgb(49, 10, 187);
         }
       }
     }
