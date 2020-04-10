@@ -68,7 +68,6 @@ module.exports = (db) => {
   router.get("/event/:url", (req, res) => {
     const ajax = req.query.ajax;
     // QUERY TO SELECT CERTAIN INSTANCES TO DISPLAY DATES ONLY
-    // const id =
     getIdfromURL(req.params.url).then(({ id }) => {
       console.log("id", id);
 
@@ -87,7 +86,6 @@ module.exports = (db) => {
         values: [id],
       };
 
-      // JOIN votes ON votes.date_id = dates.id JOIN users ON votes.user_id = users.id
       const getTimeSlots = db.query(queryTimeslots);
 
       Promise.all([getInitialEventContent, getTimeSlots])
@@ -99,7 +97,6 @@ module.exports = (db) => {
 
           event[0].timeslots = addTimeslots(timeslotsResult);
 
-          //console.log(event);
           console.log(JSON.stringify(event, null, 2));
 
           if (ajax) {
