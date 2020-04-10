@@ -47,8 +47,8 @@ $(document).ready(function () {
     let $inputCheckBox = $("<input>")
       .attr("type", "checkbox")
       .attr("id", "poll_checkbox")
-      .attr("name", "to-be-decided")
-      .attr("value", "to-be-decided");
+      .attr("name", "checkboxname")
+      .attr("value", item.date_id);
 
     $divDate.appendTo($liListRow);
     $divVoteCounter.appendTo($liListRow);
@@ -102,12 +102,12 @@ $(document).ready(function () {
   ////////////////////////////////////////////////////////////////////
 
   // Reading the id of the event comming from .main-wrapper that has data-id = event.id in the HTML
-  const eventId = $(".main-wrapper").data("id");
+  const eventURL = $(".main-wrapper").data("url");
 
   //const eventId = $(".main-wrapper").data("event.event_id");
 
   // ?ajax=true -> means that we want to get json data back from the backend route (otherwise we get full HTML)
-  requestDates(`/event/${eventId}?ajax=true`);
+  requestDates(`/event/${eventURL}?ajax=true`);
 
   //////////////////////////////////////////
   ////////// EVENT HANDLERS ///////////////
@@ -121,10 +121,43 @@ $(document).ready(function () {
       $(this).find(".popuptext").removeClass("popup-show");
     }
   });
+
+  //helper function to create an object from the form input
+  const objectifyForm = function (formArray) {
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++) {
+      returnArray[formArray[i]["name"]] = formArray[i]["value"];
+    }
+    return returnArray;
+  };
+
+  $("#poll-submit-btn").click(function (event) {
+    event.preventDefault();
+    const array = $("#name-form").serializeArray();
+    let votesObj = objectifyForm(array);
+    votesObj.dates = [];
+    votesObj.event_id = $(".main-wrapper").data("id");
+
+    $("input[type=checkbox]:checked").each(function () {
+      console.log($(this).val());
+      votesObj.dates.push($(this).val());
+    });
+    console.log(votesObj.dates);
+    $.ajax({ type: "POST", url: "/votes", data: votesObj })
+      .done(function () {
+        window.location.replace("/thank-you");
+      })
+      .fail(function (error) {
+        // Problem with the request
+        console.log(`Error with the request: ${error.message}`);
+      })
+      .always(function () {
+        // This will always run
+        console.log("request completed");
+      });
+  });
 });
 
-//Handler on submit (prevent default)
-//then extract info from the form and put them in an object
 //Issue an ajax POST request action "/votes" (check with Luana)
 //update the UI (select query)
 //create the dynamic element/template for the user and append to html
