@@ -129,9 +129,9 @@ module.exports = (db) => {
   //Add event to database from form
   const addEvent = function (data, user_id) {
     const queryText =
-      "INSERT INTO events (title, URL, description, location, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING events.id AS id;";
+      "INSERT INTO events (title, URL, location, user_id) VALUES ($1, $2, $3, $4) RETURNING events.id AS id;";
     const URL = generateUniqueURL(10);
-    const values = [data.title, URL, data.description, data.location, user_id];
+    const values = [data.title, URL, data.location, user_id];
     return db.query(queryText, values).catch((err) => console.log("Err", err));
   };
 
